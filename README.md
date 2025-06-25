@@ -18,11 +18,13 @@ config.json
     }
 } -->
 
-```cmd
-- dotnet new sln -n vssolution
+## Run in VS
+
+```shell
+dotnet new sln -n vssolution
 ```
 
 
-```cmd
-- dotnet sln vssolution.sln add package.csproj
+```shell
+dotnet sln vssolution.sln add package.csproj
 ```
