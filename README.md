@@ -17,3 +17,12 @@ config.json
         "password": ""
     }
 } -->
+
+```cmd
+- dotnet new sln -n vssolution
+```
+
+
+```cmd
+- dotnet sln vssolution.sln add package.csproj
+```
