@@ -27,10 +27,10 @@ dotnet run
 ## Run in VS
 
 ```shell
-dotnet new sln -n vssolution
+dotnet new sln -n csdb
 ```
 
 
 ```shell
-dotnet sln vssolution.sln add package.csproj
+dotnet sln csdb.sln add package.csproj
 ```
