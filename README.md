@@ -18,6 +18,12 @@ config.json
     }
 } -->
 
+## Run in Terminal
+
+```shell
+dotnet run
+```
+
 ## Run in VS
 
 ```shell
