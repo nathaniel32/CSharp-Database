@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using csdb.Database;
 
 class Program {
-
     static void ExecuteUserQuery(string query) {
         try {
             using (SqlConnection connection = DbConnector.CreateConnection()) {
