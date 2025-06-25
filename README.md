@@ -32,5 +32,5 @@ dotnet new sln -n csdb
 
 
 ```shell
-dotnet sln csdb.sln add package.csproj
+dotnet sln csdb.sln add csdb.csproj
 ```
