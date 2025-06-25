@@ -9,15 +9,6 @@ config.json
 }
 ```
 
-<!-- {
-    "DbConnection": {
-        "server": "",
-        "database": "",
-        "userId": "",
-        "password": ""
-    }
-} -->
-
 ## Run in Terminal
 
 ```shell
