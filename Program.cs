@@ -18,7 +18,7 @@ class Program
             using (SqlConnection conn = new SqlConnection(DbConnectionString))
             {
                 conn.Open();
-                Console.WriteLine("Berhasil terhubung ke database.");
+                Console.WriteLine("Connected to the database.");
 
                 string query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
 
@@ -26,7 +26,7 @@ class Program
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Console.WriteLine("Daftar tabel dalam database:");
+                        Console.WriteLine("Table:");
                         while (reader.Read())
                         {
                             Console.WriteLine("- " + reader.GetString(0));
@@ -37,7 +37,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Gagal terkoneksi atau error: " + ex.Message);
+            Console.WriteLine("Error: " + ex.Message);
         }
     }
 }
