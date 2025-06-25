@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-
 class Program
 {
     static void Main()
