@@ -1,21 +1,39 @@
 ﻿/* using System; */
-using csdb.Utils;
+using csdb.Database.Repositories;
+using csdb.Database;
 
 class Program {    
     static void Main() {
+        DbConnector.Initialize();
         Console.WriteLine("== type '/exit' to exit ==");
         while (true) {
-            Console.Write("\nSQL> ");
+            Console.WriteLine(
+                "\nMenu"
+                + "\n1. Show Niederlassung"
+                + "\n2. Show Mitarbeiter"
+            );
+
+            Console.Write("Input: ");
             string? userInput = Console.ReadLine();
 
             if (userInput == null)
                 continue;
             else if (userInput.Trim().ToLower() == "/exit")
                 break;
-            else if (userInput.Trim().ToLower() == "/table")
-                userInput = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
 
-            long? executionTime = Helper.ExecuteUserQuery(userInput);
+            long? executionTime;
+            switch (userInput) {
+                case "1":
+                    executionTime = NiederlassungRepository.QueryAllNiederlassung();
+                    break;
+                case "2":
+                    executionTime = MitarbeiterRepository.QueryAllMitarbeiter();
+                    break;
+                default:
+                    executionTime = null;
+                    break;
+            }
+
             Console.WriteLine($"Execution Time: {executionTime} ms");
         }
     }

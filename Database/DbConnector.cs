@@ -1,16 +1,34 @@
-using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Cfg;
+using NHibernate;
+using csdb.Database.Models;
 
 namespace csdb.Database {
     public static class DbConnector {
-        private static readonly IConfiguration config;
+        //private static readonly ISessionFactory sessionFactory;
+        private static ISessionFactory? sessionFactory;
 
-        static DbConnector() {
-            config = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("config.json").Build();
+        //static DbConnector()
+        public static void Initialize() {
+            var config = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("config.json").Build();
+            sessionFactory = Fluently.Configure()
+                .Database(MsSqlConfiguration.MsSql2012
+                    .ConnectionString(config.GetConnectionString("DbConnection"))
+                    .ShowSql()
+                )
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Niederlassung>())
+                .BuildSessionFactory();
         }
-        
-        public static SqlConnection CreateConnection() {
-            return new SqlConnection(config.GetConnectionString("DbConnection"));
+
+        public static ISessionFactory? GetSessionFactory() {
+            return sessionFactory;
+        }
+
+        public static ISession OpenSession() {
+            if (sessionFactory == null)
+                throw new InvalidOperationException("SessionFactory Error!");
+            return sessionFactory.OpenSession();
         }
     }
 }
