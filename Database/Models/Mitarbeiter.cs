@@ -1,6 +1,6 @@
 namespace csdb.Database.Models {
     public class Mitarbeiter {
-        public virtual string MitID { get; set; } = null!;  // Primary key is CHAR, not int
+        public virtual string MitID { get; set; } = null!;  // Primary key CHAR
         public virtual string MitName { get; set; } = null!;
         public virtual string? MitVorname { get; set; }  // Nullable
         public virtual DateTime MitGebDat { get; set; }
