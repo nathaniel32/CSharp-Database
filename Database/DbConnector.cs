@@ -1,7 +1,7 @@
-using Microsoft.Extensions.Configuration;
+using NHibernate;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Cfg;
-using NHibernate;
+using Microsoft.Extensions.Configuration;
 using csdb.Database.Models;
 
 namespace csdb.Database {

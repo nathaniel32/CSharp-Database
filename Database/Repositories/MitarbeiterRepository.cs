@@ -1,5 +1,3 @@
-using System.Data.SqlClient;
-using csdb.Database;
 using System.Diagnostics;
 using csdb.Database.Models;
 
